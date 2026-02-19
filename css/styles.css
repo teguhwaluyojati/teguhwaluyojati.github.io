@@ -11454,7 +11454,7 @@ footer.footer .social-link:hover {
 }
 
 .map {
-  height: 30rem;
+  height: auto;
 }
 .map iframe {
   pointer-events: none;
@@ -11465,7 +11465,7 @@ footer.footer .social-link:hover {
 
 @media (max-width: 992px) {
   .map {
-    height: 75%;
+    height: auto;
   }
 }
 .masthead {
