@@ -11822,3 +11822,73 @@ footer.footer .social-link:hover {
   background: rgba(15, 23, 42, 0.5);
   border-color: rgba(148, 163, 184, 0.25);
 }
+
+.theme-dark .content-section.bg-primary {
+  background-color: #0b1220 !important;
+}
+
+.theme-dark .expertise-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.theme-dark .text-secondary {
+  color: #7dd3fc !important;
+}
+
+.theme-dark .text-muted {
+  color: #94a3b8 !important;
+}
+
+.theme-dark #sidebar-wrapper {
+  background: #0f172a;
+  border-left-color: rgba(148, 163, 184, 0.3);
+}
+
+.theme-dark .sidebar-nav li a:hover {
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.theme-dark .sidebar-nav > .sidebar-brand {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.theme-dark .menu-toggle,
+.theme-dark .scroll-to-top,
+.theme-dark .theme-toggle {
+  background: rgba(15, 23, 42, 0.86);
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.theme-dark .menu-toggle:hover,
+.theme-dark .scroll-to-top:hover,
+.theme-dark .theme-toggle:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.theme-dark .btn-outline-light {
+  color: #e2e8f0;
+  border-color: rgba(226, 232, 240, 0.8);
+}
+
+.theme-dark .btn-outline-light:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.theme-dark .contact-card .form-control {
+  background-color: rgba(15, 23, 42, 0.88);
+  border-color: rgba(148, 163, 184, 0.45);
+  color: #e2e8f0;
+}
+
+.theme-dark .contact-card .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.theme-dark .contact-card .form-control:focus {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
