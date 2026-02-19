@@ -11614,7 +11614,7 @@ footer.footer .social-link:hover {
 
 .theme-dark .content-section.bg-light,
 .theme-dark .footer {
-  background-color: #111827;
+  background-color: #111827 !important;
   color: #e5e7eb;
 }
 
