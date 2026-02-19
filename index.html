@@ -21,6 +21,7 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
+        <button class="theme-toggle btn btn-light btn-sm" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙 Dark</button>
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -41,7 +42,7 @@
             </div>
         </header>
         <!-- About-->
-        <section class="content-section bg-light" id="about">
+        <section class="content-section bg-light reveal-on-scroll" id="about">
             <div class="container px-4 px-lg-5 text-center">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-10">
@@ -55,7 +56,7 @@
             </div>
         </section>
         <!-- Services-->
-        <section class="content-section bg-primary text-white text-center" id="services">
+        <section class="content-section bg-primary text-white text-center reveal-on-scroll" id="services">
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading">
                     <h3 class="text-secondary mb-0">Services</h3>
@@ -99,14 +100,20 @@
             </div>
         </section> -->
         <!-- Portfolio-->
-        <section class="content-section" id="portfolio">
+        <section class="content-section reveal-on-scroll" id="portfolio">
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading text-center">
                     <h3 class="text-secondary mb-0">Portfolio</h3>
                     <h2 class="mb-5">Recent Projects (Test Update Feb 2026)</h2>
                 </div>
+                <div class="portfolio-filters text-center mb-4">
+                    <button class="btn btn-outline-secondary btn-sm active" type="button" data-filter="all">All</button>
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-filter="web">Web</button>
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-filter="mobile">Mobile</button>
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-filter="desktop">Desktop</button>
+                </div>
                 <div class="row gx-0">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 portfolio-card" data-category="web">
                         <a class="portfolio-item" href="#!">
                             <div class="caption">
                                 <div class="caption-content">
@@ -117,7 +124,7 @@
                             <img class="img-fluid" src="assets/img/portfolio-8.png" alt="..." />
                         </a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 portfolio-card" data-category="web">
                         <a class="portfolio-item" href="#!">
                             <div class="caption">
                                 <div class="caption-content">
@@ -128,7 +135,7 @@
                             <img class="img-fluid" src="assets/img/portfolio-7.jpg" alt="..." />
                         </a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 portfolio-card" data-category="mobile">
                         <a class="portfolio-item" href="#!">
                             <div class="caption">
                                 <div class="caption-content">
@@ -139,7 +146,7 @@
                             <img class="img-fluid" src="assets/img/portfolio-10.jpg" alt="..." />
                         </a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 portfolio-card" data-category="desktop">
                         <a class="portfolio-item" href="#!">
                             <div class="caption">
                                 <div class="caption-content">
@@ -157,7 +164,7 @@
         
         <!-- Map-->
         <div class="map" id="contact">
-            <section class="content-section bg-primary text-white">
+            <section class="content-section bg-primary text-white reveal-on-scroll">
                 <div class="container px-4 px-lg-5">
                     <h2 class="mb-4 text-center">Contact Me</h2>
                     <div class="row justify-content-center">

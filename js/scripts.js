@@ -54,6 +54,65 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         }
     })
+
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            root.classList.add('theme-dark');
+            if (themeToggle) themeToggle.textContent = '☀️ Light';
+        } else {
+            root.classList.remove('theme-dark');
+            if (themeToggle) themeToggle.textContent = '🌙 Dark';
+        }
+    }
+
+    applyTheme(storedTheme === 'dark' ? 'dark' : 'light');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = root.classList.contains('theme-dark');
+            const nextTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
+
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const selected = button.getAttribute('data-filter');
+
+            filterButtons.forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+
+            portfolioCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const shouldShow = selected === 'all' || selected === category;
+                card.style.display = shouldShow ? '' : 'none';
+            });
+        });
+    });
+
+    const revealItems = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window && revealItems.length > 0) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealItems.forEach(item => observer.observe(item));
+    } else {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+    }
 })
 
 function fadeOut(el) {

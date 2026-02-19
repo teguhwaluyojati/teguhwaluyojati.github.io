@@ -11578,3 +11578,53 @@ footer.footer .social-link:hover {
 .content-section h2{
   font-size: 4rem;
 }
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050;
+}
+
+.portfolio-filters .btn {
+  margin: 0 0.2rem 0.4rem;
+}
+
+.portfolio-filters .btn.active {
+  background-color: #1D809F;
+  border-color: #1D809F;
+  color: #fff;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.theme-dark .content-section.bg-light,
+.theme-dark .footer {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+.theme-dark .portfolio-filters .btn {
+  border-color: #94a3b8;
+  color: #e2e8f0;
+}
+
+.theme-dark .portfolio-filters .btn.active {
+  background-color: #1D809F;
+  border-color: #1D809F;
+  color: #fff;
+}
