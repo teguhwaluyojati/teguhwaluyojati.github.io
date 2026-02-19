@@ -11808,9 +11808,10 @@ footer.footer .social-link:hover {
 .theme-dark .about-panel,
 .theme-dark .project-card,
 .theme-dark .timeline-card {
-  background: #111827;
-  border-color: #334155;
+  background: #0b1220;
+  border: 1px solid #334155;
   color: #e5e7eb;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.45);
 }
 
 .theme-dark .project-tag,
