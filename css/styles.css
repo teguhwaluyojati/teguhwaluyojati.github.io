@@ -11334,13 +11334,13 @@ html {
 #sidebar-wrapper {
   position: fixed;
   z-index: 2;
-  right: 0;
+  left: 0;
   width: 250px;
   height: 100%;
   transition: all 0.4s ease 0s;
-  transform: translateX(250px);
+  transform: translateX(-250px);
   background: #1D809F;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-nav {
@@ -11391,7 +11391,7 @@ html {
 }
 
 #sidebar-wrapper.active {
-  right: 250px;
+  left: 250px;
   width: 250px;
   transition: all 0.4s ease 0s;
 }
@@ -11842,7 +11842,7 @@ footer.footer .social-link:hover {
 
 .theme-dark #sidebar-wrapper {
   background: #0f172a;
-  border-left-color: rgba(148, 163, 184, 0.3);
+  border-right-color: rgba(148, 163, 184, 0.3);
 }
 
 .theme-dark .sidebar-nav li a:hover {
