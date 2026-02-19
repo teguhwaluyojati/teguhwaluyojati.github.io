@@ -7,22 +7,25 @@ window.addEventListener('DOMContentLoaded', event => {
 
     const sidebarWrapper = document.getElementById('sidebar-wrapper');
     let scrollToTopVisible = false;
-    // Closes the sidebar menu
     const menuToggle = document.body.querySelector('.menu-toggle');
-    menuToggle.addEventListener('click', event => {
-        event.preventDefault();
-        sidebarWrapper.classList.toggle('active');
-        _toggleMenuIcon();
-        menuToggle.classList.toggle('active');
-    })
+    if (menuToggle && sidebarWrapper) {
+        menuToggle.addEventListener('click', event => {
+            event.preventDefault();
+            sidebarWrapper.classList.toggle('active');
+            _toggleMenuIcon();
+            menuToggle.classList.toggle('active');
+        })
+    }
 
     // Closes responsive menu when a scroll trigger link is clicked
     var scrollTriggerList = [].slice.call(document.querySelectorAll('#sidebar-wrapper .js-scroll-trigger'));
     scrollTriggerList.map(scrollTrigger => {
         scrollTrigger.addEventListener('click', () => {
-            sidebarWrapper.classList.remove('active');
-            menuToggle.classList.remove('active');
-            _toggleMenuIcon();
+            if (sidebarWrapper && menuToggle) {
+                sidebarWrapper.classList.remove('active');
+                menuToggle.classList.remove('active');
+                _toggleMenuIcon();
+            }
         })
     });
 
@@ -42,6 +45,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // Scroll to top button appear
     document.addEventListener('scroll', () => {
         const scrollToTop = document.body.querySelector('.scroll-to-top');
+        if (!scrollToTop) return;
         if (document.documentElement.scrollTop > 100) {
             if (!scrollToTopVisible) {
                 fadeIn(scrollToTop);
@@ -83,20 +87,22 @@ window.addEventListener('DOMContentLoaded', event => {
     const filterButtons = document.querySelectorAll('[data-filter]');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const selected = button.getAttribute('data-filter');
+    if (filterButtons.length > 0 && portfolioCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selected = button.getAttribute('data-filter');
 
-            filterButtons.forEach(item => item.classList.remove('active'));
-            button.classList.add('active');
+                filterButtons.forEach(item => item.classList.remove('active'));
+                button.classList.add('active');
 
-            portfolioCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                const shouldShow = selected === 'all' || selected === category;
-                card.style.display = shouldShow ? '' : 'none';
+                portfolioCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const shouldShow = selected === 'all' || selected === category;
+                    card.style.display = shouldShow ? '' : 'none';
+                });
             });
         });
-    });
+    }
 
     const revealItems = document.querySelectorAll('.reveal-on-scroll');
     if ('IntersectionObserver' in window && revealItems.length > 0) {
