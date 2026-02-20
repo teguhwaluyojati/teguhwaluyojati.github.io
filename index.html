@@ -301,24 +301,38 @@
         const btnKirim = document.querySelector('.btn-kirim');
         const btnLoading = document.querySelector('.btn-loading');
         const myAlert = document.querySelector ('.my-alert');
+
+                function setSubmitState(isLoading) {
+                    btnLoading.classList.toggle('d-none', !isLoading);
+                    btnKirim.classList.toggle('d-none', isLoading);
+                }
+
+                function showAlert(type, message) {
+                    myAlert.classList.remove('d-none', 'alert-warning', 'alert-success', 'alert-danger');
+                    myAlert.classList.add(`alert-${type}`);
+                    myAlert.innerHTML = `<strong>${type === 'success' ? 'Thank You!' : 'Oops!'}</strong> ${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+                }
+
         form.addEventListener('submit', e => {
           e.preventDefault()
-          // ketika tombol submit di klik
-          // tampilkan tombol loading, hilangkan tombol kirim
-          btnLoading.classList.toggle('d-none');
-          btnKirim.classList.toggle('d-none');
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                // tampilkan tombol kirim
-                //hilangkan tombol loading
-                btnLoading.classList.toggle('d-none');
-                btnKirim.classList.toggle('d-none');
-                //tampilkan alert
-                myAlert.classList.toggle('d-none');
-                //reset formnya
-                form.reset();
-                console.log('Success!', response)})
-            .catch(error => console.error('Error!', error.message))
+
+                    setSubmitState(true);
+
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: new FormData(form)
+                    })
+                        .then(() => {
+                                setSubmitState(false);
+                                showAlert('success', "I've received your message. I'll contact you soon.");
+                                form.reset();
+                        })
+                        .catch(error => {
+                                setSubmitState(false);
+                                showAlert('danger', 'Failed to send message. Please try again.');
+                                console.error('Error!', error.message)
+                        })
         })
       </script>
     </body>
