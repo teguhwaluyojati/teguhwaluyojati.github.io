@@ -248,19 +248,20 @@
                                 <strong>Thank You!</strong> I've received your message. I'll contact you soon.
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                               </div>
-                          <form name="Kontak-Form" class="contact-card">
+                                                    <form id="contactForm" name="Kontak-Form" class="contact-card" action="https://formspree.io/f/mpqjjlyn" method="POST">
+                                                            <input type="hidden" name="_subject" value="New collaboration inquiry from portfolio" />
                               <div class="mb-3">
                                 <label for="Name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
+                                                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" required />
                               </div>
                               <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required />
                                 <div id="emailHelp" class="form-text text-white">Your email is safe and used only for reply.</div>
                               </div>
                               <div class="mb-3">
                                 <label for="message" class="form-label">Your Message</label>
-                                <textarea class="form-control" id="message" rows="5" name="pesan"></textarea>
+                                                                <textarea class="form-control" id="message" rows="5" name="message" required></textarea>
                               </div>
                               <button type="submit" class="btn btn-light btn-kirim">Send Message</button>
                               <button class="btn btn-light btn-loading d-none" type="button" disabled>
@@ -296,44 +297,48 @@
         <script src="js/scripts.js"></script>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyJ_W_kv1zIWOfA6GtXMwFkWhfK1dsoJPNYxH4-ugjeGLW7law-1J4u5pQXemCmDIpieQ/exec'
-        const form = document.forms['Kontak-Form']
+        const form = document.getElementById('contactForm');
         const btnKirim = document.querySelector('.btn-kirim');
         const btnLoading = document.querySelector('.btn-loading');
-        const myAlert = document.querySelector ('.my-alert');
+        const myAlert = document.querySelector('.my-alert');
 
-                function setSubmitState(isLoading) {
-                    btnLoading.classList.toggle('d-none', !isLoading);
-                    btnKirim.classList.toggle('d-none', isLoading);
+        function setSubmitState(isLoading) {
+            btnLoading.classList.toggle('d-none', !isLoading);
+            btnKirim.classList.toggle('d-none', isLoading);
+        }
+
+        function showAlert(type, message) {
+            myAlert.classList.remove('d-none', 'alert-warning', 'alert-success', 'alert-danger');
+            myAlert.classList.add(`alert-${type}`);
+            myAlert.innerHTML = `<strong>${type === 'success' ? 'Thank You!' : 'Oops!'}</strong> ${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+        }
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            setSubmitState(true);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Formspree request failed');
                 }
 
-                function showAlert(type, message) {
-                    myAlert.classList.remove('d-none', 'alert-warning', 'alert-success', 'alert-danger');
-                    myAlert.classList.add(`alert-${type}`);
-                    myAlert.innerHTML = `<strong>${type === 'success' ? 'Thank You!' : 'Oops!'}</strong> ${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
-                }
-
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-
-                    setSubmitState(true);
-
-                    fetch(scriptURL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        body: new FormData(form)
-                    })
-                        .then(() => {
-                                setSubmitState(false);
-                                showAlert('success', "I've received your message. I'll contact you soon.");
-                                form.reset();
-                        })
-                        .catch(error => {
-                                setSubmitState(false);
-                                showAlert('danger', 'Failed to send message. Please try again.');
-                                console.error('Error!', error.message)
-                        })
-        })
+                showAlert('success', "I've received your message. I'll contact you soon.");
+                form.reset();
+            } catch (error) {
+                showAlert('danger', 'Failed to send message. Please check Formspree endpoint and try again.');
+                console.error('Error!', error.message);
+            } finally {
+                setSubmitState(false);
+            }
+        });
       </script>
     </body>
 </html>
