@@ -11907,3 +11907,76 @@ footer.footer .social-link:hover {
 .theme-dark #about .about-list li {
   color: #cbd5e1;
 }
+
+.hero-availability {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+.hero-availability i {
+  color: #22c55e;
+  font-size: 0.7rem;
+  vertical-align: middle;
+  margin-right: 0.35rem;
+}
+
+.trust-strip {
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
+  background: #eef6fb;
+}
+
+.trust-item {
+  background: #fff;
+  border: 1px solid #dbe7f2;
+  border-radius: 0.9rem;
+  padding: 1rem;
+  height: 100%;
+}
+
+.trust-title {
+  color: #1D809F;
+  font-weight: 700;
+}
+
+.trust-text {
+  color: #334155;
+}
+
+.contact-actions .btn {
+  min-width: 190px;
+}
+
+.footer-quick-links {
+  margin-top: 0.6rem;
+}
+
+.footer-quick-links a {
+  color: #1D809F;
+  text-decoration: none;
+}
+
+.footer-quick-links a:hover {
+  text-decoration: underline;
+}
+
+.theme-dark .trust-strip {
+  background: #0b1220;
+}
+
+.theme-dark .trust-item {
+  background: #111827;
+  border-color: #334155;
+}
+
+.theme-dark .trust-title {
+  color: #67e8f9;
+}
+
+.theme-dark .trust-text {
+  color: #cbd5e1;
+}
+
+.theme-dark .footer-quick-links a {
+  color: #7dd3fc;
+}
