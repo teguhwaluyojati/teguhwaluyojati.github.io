@@ -11785,6 +11785,19 @@ footer.footer .social-link:hover {
   letter-spacing: 0.06em;
 }
 
+.project-link-badge {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .timeline-card {
   background: #fff;
   border: 1px solid #e2e8f0;
@@ -11829,6 +11842,11 @@ footer.footer .social-link:hover {
 
 .theme-dark .project-tag,
 .theme-dark .timeline-year {
+  color: #67e8f9;
+}
+
+.theme-dark .project-link-badge {
+  background: rgba(103, 232, 249, 0.18);
   color: #67e8f9;
 }
 
