@@ -374,6 +374,23 @@
             </div>
         </footer>
 
+        <div class="chatbot-widget" id="chatbotWidget" aria-live="polite">
+            <button class="chatbot-toggle" id="chatbotToggle" type="button" aria-expanded="false" aria-controls="chatbotPanel">
+                <i class="fas fa-comments"></i> Ask Teguh Bot
+            </button>
+            <div class="chatbot-panel d-none" id="chatbotPanel">
+                <div class="chatbot-header">
+                    <strong>Teguh Bot</strong>
+                    <button class="chatbot-close" id="chatbotClose" type="button" aria-label="Close chatbot">×</button>
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages"></div>
+                <form class="chatbot-form" id="chatbotForm">
+                    <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask: who is Teguh?" autocomplete="off" />
+                    <button type="submit" class="chatbot-send">Send</button>
+                </form>
+            </div>
+        </div>
+
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>

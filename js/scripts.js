@@ -117,6 +117,103 @@ window.addEventListener('DOMContentLoaded', event => {
     } else {
         revealItems.forEach(item => item.classList.add('is-visible'));
     }
+
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotPanel = document.getElementById('chatbotPanel');
+    const chatbotForm = document.getElementById('chatbotForm');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+
+    if (chatbotToggle && chatbotPanel && chatbotForm && chatbotInput && chatbotMessages) {
+        let initialized = false;
+
+        function addMessage(text, role) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `chatbot-msg ${role}`;
+            const bubble = document.createElement('span');
+            bubble.textContent = text;
+            wrapper.appendChild(bubble);
+            chatbotMessages.appendChild(wrapper);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function normalize(text) {
+            return text.toLowerCase().trim();
+        }
+
+        function getBotReply(rawText) {
+            const text = normalize(rawText);
+
+            if (/siapa|about|teguh/.test(text)) {
+                return 'Teguh Waluyojati is a Software Engineer focused on web applications, automation, and practical product delivery for business needs.';
+            }
+
+            if (/skill|keahlian|tech|stack|kemampuan|expert/.test(text)) {
+                return 'Core skills: Laravel, Vue.js, CodeIgniter, JavaScript, PHP, Java, and Android development.';
+            }
+
+            if (/project|portfolio|karya/.test(text)) {
+                return 'Featured projects: Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
+            }
+
+            if (/laravel\s*vue|vue/.test(text)) {
+                return 'Laravel + Vue live demo: https://myassistant.up.railway.app/';
+            }
+
+            if (/telegram|bot/.test(text)) {
+                return 'Telegram bot link: https://t.me/teguhwaluyojati_bot';
+            }
+
+            if (/kontak|contact|hire|kerja sama|collab|email/.test(text)) {
+                return 'For collaboration, please use the Contact form or email directly at teguhwaluyojati14@gmail.com';
+            }
+
+            if (/cv|resume/.test(text)) {
+                return 'You can request my CV using the "Request CV via Email" button in the Contact section.';
+            }
+
+            return 'I am not sure about that question yet. Try asking about: who is Teguh, skills, projects, Laravel + Vue, Telegram bot, or contact details.';
+        }
+
+        function openChatbot() {
+            chatbotPanel.classList.remove('d-none');
+            chatbotToggle.setAttribute('aria-expanded', 'true');
+            if (!initialized) {
+                addMessage('Hi! I am Teguh Bot. Ask me anything about profile, skills, projects, or collaboration options.', 'bot');
+                initialized = true;
+            }
+            chatbotInput.focus();
+        }
+
+        function closeChatbot() {
+            chatbotPanel.classList.add('d-none');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        chatbotToggle.addEventListener('click', () => {
+            if (chatbotPanel.classList.contains('d-none')) {
+                openChatbot();
+            } else {
+                closeChatbot();
+            }
+        });
+
+        if (chatbotClose) {
+            chatbotClose.addEventListener('click', closeChatbot);
+        }
+
+        chatbotForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const question = chatbotInput.value.trim();
+            if (!question) return;
+
+            addMessage(question, 'user');
+            const reply = getBotReply(question);
+            window.setTimeout(() => addMessage(reply, 'bot'), 180);
+            chatbotInput.value = '';
+        });
+    }
 })
 
 function fadeOut(el) {
