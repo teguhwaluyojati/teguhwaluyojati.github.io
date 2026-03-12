@@ -142,13 +142,13 @@
    BUTTON LOADING STATE
    ======================================== */
 
-.btn-loading {
+.btn-loading-state {
   position: relative;
   pointer-events: none;
   opacity: 0.8;
 }
 
-.btn-loading::after {
+.btn-loading-state::after {
   content: '';
   position: absolute;
   width: 16px;
@@ -163,11 +163,11 @@
   bottom: 0;
 }
 
-.btn-loading .btn-text {
+.btn-loading-state .btn-text {
   display: none;
 }
 
-.btn-loading .btn-text.loading {
+.btn-loading-state .btn-text.loading {
   display: inline;
   margin-right: 5px;
 }

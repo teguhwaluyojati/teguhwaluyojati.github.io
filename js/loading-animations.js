@@ -159,7 +159,7 @@ class LoadingAnimationsManager {
    */
   setButtonLoading(button, isLoading) {
     if (isLoading) {
-      button.classList.add('btn-loading');
+      button.classList.add('btn-loading-state');
       button.disabled = true;
       
       // Store original text if not already stored
@@ -169,7 +169,7 @@ class LoadingAnimationsManager {
       
       button.textContent = 'Sending...';
     } else {
-      button.classList.remove('btn-loading');
+      button.classList.remove('btn-loading-state');
       button.disabled = false;
       button.textContent = button.dataset.originalText || 'Send Message';
     }
