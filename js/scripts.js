@@ -183,7 +183,10 @@ window.addEventListener('DOMContentLoaded', event => {
                 addMessage('Hi! I am Teguh Bot. Ask me anything about profile, skills, projects, or collaboration options.', 'bot');
                 initialized = true;
             }
-            chatbotInput.focus();
+            setTimeout(() => {
+                chatbotInput.focus();
+                chatbotInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
 
         function closeChatbot() {
@@ -212,6 +215,44 @@ window.addEventListener('DOMContentLoaded', event => {
             const reply = getBotReply(question);
             window.setTimeout(() => addMessage(reply, 'bot'), 180);
             chatbotInput.value = '';
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        });
+
+        // Handle mobile keyboard detection
+        let initialViewportHeight = window.visualViewport?.height || window.innerHeight;
+        
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', () => {
+                const currentHeight = window.visualViewport.height;
+                const chatbotWidget = document.getElementById('chatbotWidget');
+                
+                // If viewport shrinks significantly, keyboard is likely visible
+                if (currentHeight < initialViewportHeight * 0.75) {
+                    chatbotWidget.style.position = 'fixed';
+                    chatbotWidget.style.bottom = 'auto';
+                    chatbotWidget.style.top = '50%';
+                    chatbotWidget.style.transform = 'translateY(-50%)';
+                    chatbotWidget.style.maxHeight = (currentHeight * 0.8) + 'px';
+                    chatbotPanel.style.display = 'flex';
+                    chatbotPanel.style.flexDirection = 'column';
+                    chatbotPanel.style.maxHeight = '100%';
+                } else {
+                    chatbotWidget.style.position = 'fixed';
+                    chatbotWidget.style.bottom = '75px';
+                    chatbotWidget.style.top = 'auto';
+                    chatbotWidget.style.transform = 'none';
+                    chatbotWidget.style.maxHeight = 'none';
+                    chatbotPanel.style.display = 'block';
+                    chatbotPanel.style.maxHeight = 'none';
+                }
+            });
+        }
+        
+        // Fallback for older browsers
+        chatbotInput.addEventListener('focus', () => {
+            setTimeout(() => {
+                chatbotInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
         });
     }
 })

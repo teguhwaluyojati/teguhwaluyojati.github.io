@@ -12018,6 +12018,7 @@ footer.footer .social-link:hover {
   bottom: 75px;
   z-index: 1045;
   width: auto;
+  transition: all 0.3s ease-out;
 }
 
 .chatbot-toggle {
@@ -12044,6 +12045,18 @@ footer.footer .social-link:hover {
   border: 1px solid #dbe7f2;
   background: #fff;
   box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+  max-height: calc(100vh - 100px);
+}
+
+@media (max-height: 600px) {
+  .chatbot-panel {
+    max-height: calc(100vh - 60px);
+    width: min(95vw, 340px);
+  }
+  
+  .chatbot-messages {
+    max-height: 150px !important;
+  }
 }
 
 .chatbot-header {
@@ -12067,6 +12080,9 @@ footer.footer .social-link:hover {
   overflow-y: auto;
   padding: 0.8rem;
   background: #fff;
+  flex: 1;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .chatbot-msg {
