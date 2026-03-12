@@ -1,12 +1,28 @@
 /* Testimonials Section - Carousel */
+#testimonials {
+  padding-top: 3rem;
+}
+
 .testimonials-carousel-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   position: relative;
   width: 100%;
+}
+
+#testimonials .content-section-heading {
+  margin-bottom: 1.2rem;
+}
+
+#testimonials .text-secondary {
+  margin-bottom: 0.3rem !important;
+}
+
+#testimonials .section-title {
+  margin-bottom: 0 !important;
 }
 
 .testimonials-carousel {
@@ -409,7 +425,7 @@
   opacity: 1;
 }
 
-/* Responsive */
+/* Responsive Media Queries */
 @media (max-width: 1024px) {
   .testimonials-carousel-wrapper {
     gap: 1rem;
@@ -421,8 +437,21 @@
 }
 
 @media (max-width: 768px) {
+  #testimonials {
+    padding-top: 2rem;
+  }
+  
   .testimonials-carousel-wrapper {
     gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  #testimonials .content-section-heading {
+    margin-bottom: 1rem;
+  }
+  
+  #testimonials .section-title {
+    margin-bottom: 0.5rem !important;
   }
   
   .testimonials-carousel {
@@ -483,43 +512,22 @@
   }
 }
 
-  .project-modal-body {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-
-  .project-modal-image {
-    height: 280px;
-  }
-
-  .project-modal-title {
-    font-size: 1.5rem;
-  }
-
-  .project-modal-actions {
-    flex-direction: column;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-modal-close {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .project-modal-content {
-    width: 95%;
-    max-width: 90vw;
-  }
-}
-
 @media (max-width: 480px) {
+  #testimonials {
+    padding-top: 1.5rem;
+  }
+  
   .testimonials-carousel-wrapper {
     gap: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  
+  #testimonials .content-section-heading {
+    margin-bottom: 0.8rem;
+  }
+  
+  #testimonials .section-title {
+    margin-bottom: 0.3rem !important;
   }
   
   .testimonials-carousel {
@@ -552,34 +560,6 @@
     width: 2rem;
     height: 2rem;
     font-size: 0.7rem;
-  }
-
-  .project-modal-body {
-    padding: 1rem;
-  }
-  
-  .project-modal-title {
-    font-size: 1.3rem;
-  }
-  
-  .project-modal-image {
-    height: 220px;
-  }
-  
-  .project-modal-close {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.5rem;
-  }
-  
-  .project-modal-stats {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-  
-  .testimonials-carousel {
-    gap: 1rem;
   }
 
   .project-modal-body {
