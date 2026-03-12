@@ -1,66 +1,53 @@
-// Testimonials Carousel Functionality
+// Testimonials Carousel - Infinite Looping with Cloned Cards
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.testimonials-carousel');
-    const cards = document.querySelectorAll('.testimonial-card');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    if (!carousel) return;
     
-    let currentIndex = 1; // Start with second card (index 1) as center for natural carousel view
-    const totalCards = cards.length;
+    const cards = Array.from(carousel.querySelectorAll('.testimonial-card'));
+    if (cards.length === 0) return;
     
-    // Update carousel display - show 3 items with center highlighted
-    function updateCarousel() {
-        const leftIndex = (currentIndex - 1 + totalCards) % totalCards;
-        const centerIndex = currentIndex;
-        const rightIndex = (currentIndex + 1) % totalCards;
-        
-        console.log('Current:', currentIndex, 'Left:', leftIndex, 'Center:', centerIndex, 'Right:', rightIndex);
-        
-        cards.forEach((card, index) => {
-            card.classList.remove('active', 'prev', 'next');
-            card.style.display = 'none';
-            
-            if (index === leftIndex) {
-                // Left card
-                card.classList.add('prev');
-                card.style.display = 'flex';
-                console.log(`Card ${index} → prev`);
-            } else if (index === centerIndex) {
-                // Center card - ALWAYS THIS BECOMES BIG
-                card.classList.add('active');
-                card.style.display = 'flex';
-                console.log(`Card ${index} → ACTIVE (center)`);
-            } else if (index === rightIndex) {
-                // Right card
-                card.classList.add('next');
-                card.style.display = 'flex';
-                console.log(`Card ${index} → next`);
-            }
-        });
-    }
+    // Clone first and last cards for infinite loop
+    const firstCard = cards[0].cloneNode(true);
+    const lastCard = cards[cards.length - 1].cloneNode(true);
     
-    // Next button - move to next item
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalCards;
-        updateCarousel();
-    });
+    // Insert clones
+    carousel.appendChild(firstCard);
+    carousel.insertBefore(lastCard, cards[0]);
     
-    // Previous button - move to previous item
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        updateCarousel();
-    });
+    // Calculate card width (380px + 24px gap = 404px)
+    const cardWidth = 404;
     
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') nextBtn.click();
-        if (e.key === 'ArrowLeft') prevBtn.click();
-    });
+    // Start position at first REAL card (skip the cloned last card at beginning)
+    carousel.scrollLeft = cardWidth;
     
-    // Touch/swipe support
     let touchStartX = 0;
     let touchEndX = 0;
+    const swipeThreshold = 50;
+    let isLooping = false;
     
+    // Infinite loop handler
+    carousel.addEventListener('scroll', () => {
+        if (isLooping) return;
+        
+        const scrollLeft = carousel.scrollLeft;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        
+        // Near end? Jump to real first
+        if (scrollLeft >= maxScroll - 50) {
+            isLooping = true;
+            carousel.scrollLeft = cardWidth;
+            setTimeout(() => { isLooping = false; }, 50);
+        }
+        
+        // Near start? Jump to real last
+        if (scrollLeft <= 50) {
+            isLooping = true;
+            carousel.scrollLeft = maxScroll - cardWidth;
+            setTimeout(() => { isLooping = false; }, 50);
+        }
+    });
+    
+    // Touch swipe handler
     carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     }, false);
@@ -71,17 +58,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false);
     
     function handleSwipe() {
-        const swipeThreshold = 50;
-        if (touchStartX - touchEndX > swipeThreshold) {
-            // Swiped left
-            nextBtn.click();
-        }
-        if (touchEndX - touchStartX > swipeThreshold) {
-            // Swiped right
-            prevBtn.click();
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swiped left - scroll right
+                carousel.scrollBy({ left: 350, behavior: 'smooth' });
+            } else {
+                // Swiped right - scroll left
+                carousel.scrollBy({ left: -350, behavior: 'smooth' });
+            }
         }
     }
     
-    // Initialize carousel
-    updateCarousel();
+    // Mouse drag support (optional, for desktop)
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+    
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+    
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
 });
