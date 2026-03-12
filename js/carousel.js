@@ -10,28 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update carousel display - show 3 items with center highlighted
     function updateCarousel() {
+        const leftIndex = (currentIndex - 1 + totalCards) % totalCards;
+        const centerIndex = currentIndex;
+        const rightIndex = (currentIndex + 1) % totalCards;
+        
+        console.log('Current:', currentIndex, 'Left:', leftIndex, 'Center:', centerIndex, 'Right:', rightIndex);
+        
         cards.forEach((card, index) => {
             card.classList.remove('active', 'prev', 'next');
             card.style.display = 'none';
-            
-            // Calculate which card appears on left, center, right
-            // Properly handle circular/wrapping logic
-            const leftIndex = (currentIndex - 1 + totalCards) % totalCards;
-            const centerIndex = currentIndex;
-            const rightIndex = (currentIndex + 1) % totalCards;
             
             if (index === leftIndex) {
                 // Left card
                 card.classList.add('prev');
                 card.style.display = 'flex';
+                console.log(`Card ${index} → prev`);
             } else if (index === centerIndex) {
                 // Center card - ALWAYS THIS BECOMES BIG
                 card.classList.add('active');
                 card.style.display = 'flex';
+                console.log(`Card ${index} → ACTIVE (center)`);
             } else if (index === rightIndex) {
                 // Right card
                 card.classList.add('next');
                 card.style.display = 'flex';
+                console.log(`Card ${index} → next`);
             }
         });
     }
