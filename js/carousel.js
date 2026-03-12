@@ -14,11 +14,17 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.appendChild(firstCard);
     carousel.insertBefore(lastCard, cards[0]);
     
-    // Calculate card width (380px + 24px gap = 404px)
-    const cardWidth = 404;
+    // Get actual card width + gap from first real card
+    const allCards = carousel.querySelectorAll('.testimonial-card');
+    const firstRealIndex = 1; // Skip the cloned last card at start
+    const cardWidth = allCards[firstRealIndex].offsetWidth;
+    
+    // Calculate gap from computed style
+    const gap = parseInt(window.getComputedStyle(carousel).gap) || 24;
+    const step = cardWidth + gap;
     
     // Start position at first REAL card (skip the cloned last card at beginning)
-    carousel.scrollLeft = cardWidth;
+    carousel.scrollLeft = step;
     
     let touchStartX = 0;
     let touchEndX = 0;
@@ -32,17 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollLeft = carousel.scrollLeft;
         const maxScroll = carousel.scrollWidth - carousel.clientWidth;
         
-        // Near end? Jump to real first
-        if (scrollLeft >= maxScroll - 50) {
+        // Near end? Jump to first real card
+        if (scrollLeft >= maxScroll - step) {
             isLooping = true;
-            carousel.scrollLeft = cardWidth;
+            carousel.scrollLeft = step;
             setTimeout(() => { isLooping = false; }, 50);
         }
         
-        // Near start? Jump to real last
-        if (scrollLeft <= 50) {
+        // Near start? Jump to last real card  
+        if (scrollLeft < step / 2) {
             isLooping = true;
-            carousel.scrollLeft = maxScroll - cardWidth;
+            carousel.scrollLeft = maxScroll - step;
             setTimeout(() => { isLooping = false; }, 50);
         }
     });
@@ -62,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) {
-                // Swiped left - scroll right
-                carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                // Swiped left - scroll right (forward)
+                carousel.scrollBy({ left: step, behavior: 'smooth' });
             } else {
-                // Swiped right - scroll left
-                carousel.scrollBy({ left: -350, behavior: 'smooth' });
+                // Swiped right - scroll left (backward)
+                carousel.scrollBy({ left: -step, behavior: 'smooth' });
             }
         }
     }
