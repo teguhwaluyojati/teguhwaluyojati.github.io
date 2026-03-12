@@ -47,6 +47,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/modal-testimonials.css" rel="stylesheet" />
+        <link href="css/loading-animations.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <!-- Google Analytics -->
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7H6VSPNLJX"></script>
@@ -59,6 +60,14 @@
                 </script>
     </head>
     <body id="page-top">
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <div class="spinner-text">Loading</div>
+            </div>
+        </div>
+
         <button class="theme-toggle btn btn-light btn-sm" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙 Dark</button>
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
@@ -172,21 +181,21 @@
                     <h2 class="mb-5 section-title text-white">How I Contribute</h2>
                 </div>
                 <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4 reveal-item">
                         <article class="expertise-card h-100">
                             <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-screen-smartphone"></i></span>
                             <h4><strong>Mobile Development</strong></h4>
                             <p class="mb-0">Android apps for attendance, operations, and team productivity workflows.</p>
                         </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4 reveal-item">
                         <article class="expertise-card h-100">
                             <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-desktop"></i></span>
                             <h4><strong>Web Development</strong></h4>
                             <p class="mb-0">Scalable web apps using PHP frameworks with clear and maintainable structure.</p>
                         </article>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4 reveal-item">
                         <article class="expertise-card h-100">
                             <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-code"></i></span>
                             <h4><strong>Software Development</strong></h4>
@@ -210,7 +219,7 @@
                     <button class="btn btn-outline-secondary btn-sm" type="button" data-filter="desktop">Desktop</button>
                 </div>
                 <div class="row gx-4 gy-4">
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="web">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="web">
                         <button class="project-card project-card-btn h-100" type="button" data-project="codeigniter" aria-label="View CodeIgniter Business System project details">
                             <img class="img-fluid project-image" src="assets/img/portfolio-8.png" alt="CodeIgniter Project" />
                             <div class="project-body">
@@ -220,7 +229,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="web">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="web">
                         <button class="project-card project-card-btn h-100" type="button" data-project="laravel-enterprise" aria-label="View Laravel Enterprise Portal project details">
                             <img class="img-fluid project-image" src="assets/img/portfolio-7.jpg" alt="Laravel Project" />
                             <div class="project-body">
@@ -230,7 +239,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="web">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="web">
                         <button class="project-card project-card-btn h-100" type="button" data-project="laravel-vue" aria-label="View Laravel + Vue Dashboard project details">
                             <img class="img-fluid project-image" src="assets/img/laravel-vue.png" alt="Laravel Vue Application" />
                             <div class="project-body">
@@ -241,7 +250,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="web">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="web">
                         <button class="project-card project-card-btn h-100" type="button" data-project="telegram-bot" aria-label="View Laravel + Telegram Bot project details">
                             <img class="img-fluid project-image" src="assets/img/laravel-bot-tele.jpg" alt="Laravel Telegram Bot Integration" />
                             <div class="project-body">
@@ -252,7 +261,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="mobile">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="mobile">
                         <button class="project-card project-card-btn h-100" type="button" data-project="android-attendance" aria-label="View Android Attendance App project details">
                             <img class="img-fluid project-image" src="assets/img/portfolio-10.jpg" alt="Android Application" />
                             <div class="project-body">
@@ -262,7 +271,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-6 mb-4 portfolio-card" data-category="desktop">
+                    <div class="col-lg-6 mb-4 portfolio-card reveal-item" data-category="desktop">
                         <button class="project-card project-card-btn h-100" type="button" data-project="laundry-system" aria-label="View Laundry Information System project details">
                             <img class="img-fluid project-image" src="assets/img/portfolio-11.jpg" alt="Desktop Laundry System" />
                             <div class="project-body">
@@ -357,21 +366,21 @@
                     <h2 class="section-title">Career Snapshot</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-4 mb-4 reveal-item">
                         <article class="timeline-card h-100">
                             <p class="timeline-year">2022 - Present</p>
                             <h5>Software Engineer</h5>
                             <p class="mb-0">Developing business applications and website modules for company operations.</p>
                         </article>
                     </div>
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-4 mb-4 reveal-item">
                         <article class="timeline-card h-100">
                             <p class="timeline-year">2020 - 2022</p>
                             <h5>Freelance Software Engineer</h5>
                             <p class="mb-0">Handled web and software requests from small businesses and personal clients.</p>
                         </article>
                     </div>
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-4 mb-4 reveal-item">
                         <article class="timeline-card h-100">
                             <p class="timeline-year">2016 - 2020</p>
                             <h5>STMIK Jayakarta</h5>
@@ -505,6 +514,7 @@
         <script src="js/scripts.js"></script>
         <script src="js/modal.js"></script>
         <script src="js/carousel.js"></script>
+        <script src="js/loading-animations.js"></script>
 
     <script>
         const form = document.getElementById('contactForm');
