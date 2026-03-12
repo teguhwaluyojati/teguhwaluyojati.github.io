@@ -21,9 +21,6 @@ class LoadingAnimationsManager {
     
     // Initialize scroll reveal for elements
     this.initScrollReveal();
-    
-    // Handle button loading states
-    this.setupButtonLoadingStates();
   }
 
   /**
@@ -142,8 +139,8 @@ class LoadingAnimationsManager {
    * Setup button loading states for form submission
    */
   setupButtonLoadingStates() {
-    // Get all forms
-    const forms = document.querySelectorAll('form');
+    // Get forms that explicitly opt-in to automatic button loading
+    const forms = document.querySelectorAll('form[data-auto-button-loading="true"]');
     
     forms.forEach(form => {
       form.addEventListener('submit', (e) => {
