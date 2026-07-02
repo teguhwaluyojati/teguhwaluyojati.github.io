@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', event => {
             }
 
             if (/project|portfolio|karya/.test(text)) {
-                return 'Featured projects: Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
+                return 'Featured projects: Personal Hub, Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
             }
 
             if (/laravel\s*vue|vue/.test(text)) {

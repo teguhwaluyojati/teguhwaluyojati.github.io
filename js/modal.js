@@ -70,6 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             link: 'https://t.me/teguhwaluyojati_bot'
         },
+        'personal-hub': {
+            title: 'Personal Hub',
+            tag: 'Web App',
+            year: '2026',
+            tech: 'JavaScript, Alpine.js, REST API, LocalStorage',
+            image: 'assets/img/laravel-vue.png',
+            description: 'Unified personal dashboard for daily digital workflow. Problem: Important tools like communication links, market updates, and quick notes were scattered across multiple apps. Solution: Built a centralized hub that combines social shortcuts, market snapshots (USD/IDR, BTC/IDR, IHSG), news feed, and sticky notes in one interface. Impact: Reduced context-switching and made daily monitoring significantly faster.',
+            features: [
+                'Quick access cards for WhatsApp, Telegram, and GitHub',
+                'Live market panel for USD/IDR, BTC/IDR, and IHSG',
+                'Integrated news feed with pagination',
+                'Sticky notes persisted via LocalStorage',
+                'Bilingual interface (ID and EN)'
+            ],
+            link: 'https://twjdev-personal-hub.vercel.app/'
+        },
         'android-attendance': {
             title: 'Android Attendance App',
             tag: 'Mobile',
