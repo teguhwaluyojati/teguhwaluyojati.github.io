@@ -154,7 +154,11 @@ window.addEventListener('DOMContentLoaded', event => {
             }
 
             if (/project|portfolio|karya/.test(text)) {
-                return 'Featured projects: Personal Hub, Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
+                return 'Featured projects: AjuLaju Web App, AjuLaju Android Native App, Personal Hub, Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
+            }
+
+            if (/ajulaju|aju laju/.test(text)) {
+                return 'AjuLaju projects are available in two platforms: AjuLaju Web App and AjuLaju Android Native App.';
             }
 
             if (/laravel\s*vue|vue/.test(text)) {

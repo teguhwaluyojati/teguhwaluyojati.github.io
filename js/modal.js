@@ -86,6 +86,38 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             link: 'https://twjdev-personal-hub.vercel.app/'
         },
+        'ajulaju-web': {
+            title: 'AjuLaju Web App',
+            tag: 'Web App',
+            year: '2025-2026',
+            tech: 'Laravel, JavaScript, MySQL, Bootstrap',
+            image: 'assets/img/portfolio-9.jpg',
+            description: 'Web-based logistics operations platform for AjuLaju. Problem: Order and trip coordination was scattered across chat and spreadsheets, making tracking difficult. Solution: Built a centralized web app for booking, dispatching, route monitoring, and status tracking. Impact: Improved team visibility and reduced operational delays significantly.',
+            features: [
+                'Centralized booking and order management',
+                'Dispatch dashboard for operations teams',
+                'Real-time shipment status timeline',
+                'Role-based access for admin and operators',
+                'Operational reports and activity logs'
+            ],
+            link: '#'
+        },
+        'ajulaju-android': {
+            title: 'AjuLaju Android Native App',
+            tag: 'Mobile',
+            year: '2025-2026',
+            tech: 'Kotlin, Android SDK, REST API, Google Maps',
+            image: 'assets/img/portfolio-10.jpg',
+            description: 'Native Android app for AjuLaju field operations. Problem: Drivers and field teams needed faster updates and task execution while on the road. Solution: Developed an Android native app for trip assignment, navigation support, proof of delivery, and live progress updates. Impact: Shortened response time in the field and improved delivery accuracy.',
+            features: [
+                'Trip assignment and task checklist for drivers',
+                'Integrated maps and route guidance',
+                'Proof of delivery with photo upload',
+                'Push notifications for new assignments',
+                'Offline queue with auto-sync when online'
+            ],
+            link: '#'
+        },
         'android-attendance': {
             title: 'Android Attendance App',
             tag: 'Mobile',
