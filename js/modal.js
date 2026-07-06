@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Role-based access for admin and operators',
                 'Operational reports and activity logs'
             ],
-            link: '#'
+            link: 'https://twjdev-aju-laju.vercel.app/'
         },
         'ajulaju-android': {
             title: 'AjuLaju Android Native App',
