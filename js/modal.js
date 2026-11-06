@@ -6,6 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Project data
     const projectData = {
+        'self-cloud-drive': {
+            title: 'Self-Hosted Cloud Drive',
+            tag: 'Web & Mobile',
+            year: '2026',
+            tech: 'WSL 2, Ubuntu, Docker, Nextcloud, PostgreSQL, Tailscale, Android',
+            image: 'assets/img/self-cloud-drive.svg',
+            description: 'A private self-hosted cloud drive built with Nextcloud and PostgreSQL. It runs in Docker on Ubuntu through WSL 2, with Tailscale providing private access from the web and Android.',
+            features: [
+                'Self-hosted file storage powered by Nextcloud',
+                'Runs on Ubuntu in WSL 2 using Docker',
+                'PostgreSQL database for Nextcloud',
+                'Private network access through Tailscale',
+                'Access through the web interface and Android'
+            ],
+            link: '#'
+        },
         'codeigniter': {
             title: 'CodeIgniter Business System',
             tag: 'Web App',

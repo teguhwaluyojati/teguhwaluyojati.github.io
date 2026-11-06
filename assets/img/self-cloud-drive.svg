@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Self-hosted cloud drive</title>
+  <desc id="desc">A cloud storage dashboard with folders, files, and a cloud icon.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102f46"/>
+      <stop offset="1" stop-color="#1d809f"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9f4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <circle cx="780" cy="100" r="170" fill="#ffffff" opacity=".05"/>
+  <circle cx="125" cy="510" r="210" fill="#ffffff" opacity=".04"/>
+  <rect x="116" y="82" width="728" height="436" rx="24" fill="#f8fbfd"/>
+  <path d="M140 82h680a24 24 0 0 1 24 24v49H116v-49a24 24 0 0 1 24-24Z" fill="#e9f1f5"/>
+  <circle cx="151" cy="118" r="7" fill="#f07167"/>
+  <circle cx="176" cy="118" r="7" fill="#f4bd50"/>
+  <circle cx="201" cy="118" r="7" fill="#63c48b"/>
+  <rect x="247" y="105" width="405" height="26" rx="13" fill="#d5e2e9"/>
+  <rect x="116" y="155" width="165" height="363" fill="#f0f6f8"/>
+  <rect x="145" y="188" width="106" height="13" rx="6" fill="#1d809f"/>
+  <rect x="145" y="224" width="78" height="11" rx="5" fill="#a5bac5"/>
+  <rect x="145" y="255" width="91" height="11" rx="5" fill="#a5bac5"/>
+  <rect x="145" y="286" width="68" height="11" rx="5" fill="#a5bac5"/>
+  <rect x="145" y="317" width="82" height="11" rx="5" fill="#a5bac5"/>
+  <text x="318" y="207" fill="#193b4e" font-family="Arial, sans-serif" font-size="25" font-weight="700">My Cloud Drive</text>
+  <text x="318" y="237" fill="#718895" font-family="Arial, sans-serif" font-size="14">Your files, available across devices</text>
+  <g transform="translate(700 178)">
+    <path d="M15 51a18 18 0 0 1 2-36 28 28 0 0 1 53 5 16 16 0 1 1 3 31H15Z" fill="url(#cloud)" stroke="#9bcbdc" stroke-width="3"/>
+    <path d="M43 29v29m0-29-10 10m10-10 10 10" fill="none" stroke="#1d809f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="318" y="278" width="145" height="111" rx="12" fill="#e9f5fa"/>
+    <path d="M344 309h28l9 9h35v37h-72Z" fill="#70b9d1"/>
+    <text x="344" y="374" fill="#36586a" font-size="13">Documents</text>
+    <rect x="479" y="278" width="145" height="111" rx="12" fill="#f2effb"/>
+    <path d="M520 300h47v47h-47Z" rx="5" fill="#9383c8"/>
+    <path d="M528 311h30m-30 9h30m-30 9h22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <text x="505" y="374" fill="#36586a" font-size="13">Project notes</text>
+    <rect x="640" y="278" width="145" height="111" rx="12" fill="#fff5e6"/>
+    <rect x="683" y="299" width="58" height="44" rx="5" fill="#eca94e"/>
+    <circle cx="727" cy="311" r="6" fill="#fff1c9"/>
+    <path d="m688 338 15-14 10 9 9-8 15 13Z" fill="#fff1c9"/>
+    <text x="685" y="374" fill="#36586a" font-size="13">Photos</text>
+  </g>
+  <rect x="318" y="416" width="467" height="1" fill="#e2ebef"/>
+  <circle cx="338" cy="455" r="12" fill="#e9f5fa"/>
+  <path d="M338 448v14m-5-9 5-5 5 5" fill="none" stroke="#1d809f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <text x="361" y="460" fill="#607985" font-family="Arial, sans-serif" font-size="14">Synced with Android</text>
+  <rect x="677" y="438" width="108" height="34" rx="17" fill="#1d809f"/>
+  <text x="731" y="460" fill="#fff" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">Self-hosted</text>
+</svg>

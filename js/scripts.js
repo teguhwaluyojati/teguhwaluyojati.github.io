@@ -84,6 +84,27 @@ window.addEventListener('DOMContentLoaded', event => {
 
     const filterButtons = document.querySelectorAll('[data-filter]');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const viewAllProjectsButton = document.getElementById('viewAllProjects');
+    const initialProjectCount = 4;
+    let showAllProjects = false;
+    let activeProjectFilter = 'all';
+
+    function updatePortfolioCards() {
+        portfolioCards.forEach((card, index) => {
+            const categories = card.getAttribute('data-category').split(/\s+/);
+            const matchesFilter = activeProjectFilter === 'all' || categories.includes(activeProjectFilter);
+            const withinInitialSelection = index < initialProjectCount;
+            const shouldShow = matchesFilter && (showAllProjects || activeProjectFilter !== 'all' || withinInitialSelection);
+            card.style.display = shouldShow ? '' : 'none';
+        });
+
+        if (viewAllProjectsButton) {
+            const showButton = activeProjectFilter === 'all' && portfolioCards.length > initialProjectCount;
+            viewAllProjectsButton.parentElement.hidden = !showButton;
+            viewAllProjectsButton.textContent = showAllProjects ? 'Show Featured Projects' : 'View All Projects';
+            viewAllProjectsButton.setAttribute('aria-expanded', String(showAllProjects));
+        }
+    }
 
     if (filterButtons.length > 0 && portfolioCards.length > 0) {
         filterButtons.forEach(button => {
@@ -92,14 +113,20 @@ window.addEventListener('DOMContentLoaded', event => {
 
                 filterButtons.forEach(item => item.classList.remove('active'));
                 button.classList.add('active');
-
-                portfolioCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    const shouldShow = selected === 'all' || selected === category;
-                    card.style.display = shouldShow ? '' : 'none';
-                });
+                activeProjectFilter = selected;
+                if (selected === 'all') showAllProjects = false;
+                updatePortfolioCards();
             });
         });
+
+        if (viewAllProjectsButton) {
+            viewAllProjectsButton.addEventListener('click', () => {
+                showAllProjects = !showAllProjects;
+                updatePortfolioCards();
+            });
+        }
+
+        updatePortfolioCards();
     }
 
     const revealItems = document.querySelectorAll('.reveal-on-scroll');
@@ -150,11 +177,11 @@ window.addEventListener('DOMContentLoaded', event => {
             }
 
             if (/skill|keahlian|tech|stack|kemampuan|expert/.test(text)) {
-                return 'Core skills: Laravel, Vue.js, CodeIgniter, JavaScript, PHP, Java, and Android development.';
+                return 'Core skills and tools: Laravel, Vue.js, CodeIgniter, JavaScript, PHP, Java, Android development, WSL 2, Ubuntu, Docker, Nextcloud, PostgreSQL, and Tailscale. I recently built a private self-hosted cloud drive for web and Android access.';
             }
 
             if (/project|portfolio|karya/.test(text)) {
-                return 'Featured projects: AjuLaju Web App, AjuLaju Android Native App, Personal Hub, Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
+                return 'Featured projects: Self-Hosted Cloud Drive, AjuLaju Web App, AjuLaju Android Native App, Personal Hub, Laravel + Vue Dashboard, Laravel + Telegram Bot, Laravel Enterprise Portal, and Android Attendance App.';
             }
 
             if (/ajulaju|aju laju/.test(text)) {
