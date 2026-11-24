@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Trend visualization for recent spending',
                 'Cloud-stored data for secure access anywhere'
             ],
-            link: 'https://twjdev-aju-laju.vercel.app/'
+            link: 'https://ajulaju.teguhwaluyojati.my.id/'
         },
         'ajulaju-android': {
             title: 'AjuLaju Android Native App',
