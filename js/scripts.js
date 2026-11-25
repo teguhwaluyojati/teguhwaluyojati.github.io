@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const filterButtons = document.querySelectorAll('[data-filter]');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
     const viewAllProjectsButton = document.getElementById('viewAllProjects');
-    const initialProjectCount = 4;
+    const initialProjectCount = 6;
     let showAllProjects = false;
     let activeProjectFilter = 'all';
 

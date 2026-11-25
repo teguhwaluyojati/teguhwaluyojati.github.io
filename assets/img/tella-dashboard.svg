@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Tella dashboard illustration</title>
+  <desc id="desc">An illustrative private dashboard showing server resource cards, service status, and history.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102f46"/>
+      <stop offset="1" stop-color="#1d809f"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <circle cx="826" cy="70" r="175" fill="#fff" opacity=".05"/>
+  <circle cx="95" cy="540" r="205" fill="#fff" opacity=".04"/>
+  <rect x="96" y="70" width="768" height="460" rx="24" fill="#f8fbfd"/>
+  <path d="M120 70h720a24 24 0 0 1 24 24v53H96V94a24 24 0 0 1 24-24Z" fill="#e9f1f5"/>
+  <circle cx="132" cy="108" r="7" fill="#f07167"/>
+  <circle cx="157" cy="108" r="7" fill="#f4bd50"/>
+  <circle cx="182" cy="108" r="7" fill="#63c48b"/>
+  <text x="130" y="183" fill="#193b4e" font-family="Arial, sans-serif" font-size="26" font-weight="700">Tella</text>
+  <text x="130" y="207" fill="#718895" font-family="Arial, sans-serif" font-size="14">Private server overview</text>
+  <rect x="698" y="161" width="132" height="34" rx="17" fill="#e4f5ec"/>
+  <circle cx="717" cy="178" r="5" fill="#38a874"/>
+  <text x="730" y="183" fill="#327758" font-family="Arial, sans-serif" font-size="12">TAILSCALE</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="130" y="234" width="210" height="92" rx="12" fill="#eaf5f9"/>
+    <text x="150" y="262" fill="#718895" font-size="13">CPU USAGE</text>
+    <text x="150" y="301" fill="#193b4e" font-size="29" font-weight="700">37%</text>
+    <rect x="150" y="311" width="166" height="5" rx="2" fill="#cddfe6"/>
+    <rect x="150" y="311" width="62" height="5" rx="2" fill="#1d809f"/>
+    <rect x="353" y="234" width="210" height="92" rx="12" fill="#f1effa"/>
+    <text x="373" y="262" fill="#718895" font-size="13">MEMORY</text>
+    <text x="373" y="301" fill="#193b4e" font-size="29" font-weight="700">62%</text>
+    <rect x="373" y="311" width="166" height="5" rx="2" fill="#ddd8ef"/>
+    <rect x="373" y="311" width="103" height="5" rx="2" fill="#7568b5"/>
+    <rect x="576" y="234" width="210" height="92" rx="12" fill="#fff5e6"/>
+    <text x="596" y="262" fill="#718895" font-size="13">STORAGE</text>
+    <text x="596" y="301" fill="#193b4e" font-size="29" font-weight="700">41%</text>
+    <rect x="596" y="311" width="166" height="5" rx="2" fill="#f0dfc4"/>
+    <rect x="596" y="311" width="68" height="5" rx="2" fill="#e9a53e"/>
+    <rect x="130" y="347" width="430" height="147" rx="12" fill="#fff" stroke="#e1eaee"/>
+    <text x="152" y="375" fill="#193b4e" font-size="15" font-weight="700">Resource history</text>
+    <path d="M153 461h383M153 430h383M153 399h383" stroke="#e7eef1" stroke-width="1"/>
+    <path d="m160 448 48-18 45 7 48-36 49 13 47-25 49 8 43-28 43 12" fill="none" stroke="#1d809f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="579" y="347" width="207" height="147" rx="12" fill="#17384d"/>
+    <text x="599" y="375" fill="#d8edf4" font-size="14" font-weight="700">Active services</text>
+    <circle cx="603" cy="404" r="5" fill="#62d39a"/>
+    <text x="618" y="409" fill="#fff" font-size="13">Docker</text>
+    <circle cx="603" cy="431" r="5" fill="#62d39a"/>
+    <text x="618" y="436" fill="#fff" font-size="13">Network services</text>
+    <circle cx="603" cy="458" r="5" fill="#62d39a"/>
+    <text x="618" y="463" fill="#fff" font-size="13">System services</text>
+  </g>
+</svg>

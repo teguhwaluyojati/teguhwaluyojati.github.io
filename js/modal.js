@@ -6,19 +6,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Project data
     const projectData = {
-        'self-cloud-drive': {
-            title: 'Self-Hosted Cloud Drive',
-            tag: 'Web & Mobile',
+        'ubuntu-homelab': {
+            title: 'Ubuntu Server Homelab',
+            tag: 'Infrastructure',
             year: '2026',
-            tech: 'WSL 2, Ubuntu, Docker, Nextcloud, PostgreSQL, Tailscale, Android',
-            image: 'assets/img/self-cloud-drive.svg',
-            description: 'A private self-hosted cloud drive built with Nextcloud and PostgreSQL. It runs in Docker on Ubuntu through WSL 2, with Tailscale providing private access from the web and Android.',
+            tech: 'Ubuntu Server, Linux, Cloudflare, Tailscale, Docker',
+            image: 'assets/img/ubuntu-server.svg',
+            description: 'A self-managed Ubuntu Server for personal and project services. It hosts public deployments such as AjuLaju and this portfolio, plus private tools reachable through Tailscale. Cloudflare is used for the public domains.',
             features: [
-                'Self-hosted file storage powered by Nextcloud',
-                'Runs on Ubuntu in WSL 2 using Docker',
-                'PostgreSQL database for Nextcloud',
-                'Private network access through Tailscale',
-                'Access through the web interface and Android'
+                'Set up and operate a Linux server with Ubuntu Server',
+                'Host public projects including AjuLaju and this portfolio',
+                'Use Cloudflare for public project domains',
+                'Keep private services accessible through Tailscale',
+                'Run personal tools including Assistant Code and Tella'
+            ],
+            link: '#'
+        },
+        'tella': {
+            title: 'Tella (Teguh Environment & Linux Life Assistant)',
+            tag: 'Private Dashboard',
+            year: '2026',
+            tech: 'Ubuntu Server, Tailscale',
+            image: 'assets/img/tella-dashboard.svg',
+            description: 'A private homelab dashboard for server analytics and service visibility. Tella is only accessible through Tailscale.',
+            features: [
+                'CPU, memory, and storage analytics',
+                'Status of active services, including Docker',
+                'Network service information',
+                'Historical server data and analytics'
             ],
             link: '#'
         },
@@ -106,15 +121,16 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'AjuLaju Web App',
             tag: 'Web App',
             year: '2025-2026',
-            tech: 'JavaScript, Firebase, Chart.js, Bootstrap',
-            image: 'assets/img/portfolio-9.jpg',
-            description: 'Web app for vehicle expense tracking in AjuLaju. Problem: Fuel and service expenses were recorded manually and spread across notes, making monthly monitoring difficult. Solution: Built a centralized dashboard to record fuel and service transactions, monitor spending trends, and keep maintenance history in one place. Impact: Expense tracking became clearer, faster, and easier to review anytime.',
+            tech: 'JavaScript, Firebase, Chart.js, Bootstrap, Cloudflare',
+            image: 'assets/img/ajulaju-web.svg',
+            description: 'Web app for vehicle fuel expense and maintenance tracking. The project is now deployed on a personal domain through Cloudflare.',
             features: [
                 'Dashboard for monthly fuel and service expenses',
                 'Centralized service history per vehicle',
                 'Fuel transaction records with consumption tracking',
                 'Trend visualization for recent spending',
-                'Cloud-stored data for secure access anywhere'
+                'Cloud-stored data for access across devices',
+                'Deployed on a personal domain through Cloudflare'
             ],
             link: 'https://ajulaju.teguhwaluyojati.my.id/'
         },
@@ -123,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tag: 'Mobile',
             year: '2025-2026',
             tech: 'Kotlin, Android SDK, Firebase API, Room Database',
-            image: 'assets/img/portfolio-10.jpg',
+            image: 'assets/img/ajulaju-android.svg',
             description: 'Native Android app companion for AjuLaju vehicle expense tracking. Problem: Vehicle owners needed a practical way to log fuel and service costs directly from mobile without switching between notes and spreadsheets. Solution: Developed an Android app to capture daily expense records, view spending summaries, and sync data for consistent monitoring. Impact: Daily recording became more practical and spending control improved.',
             features: [
                 'Quick input for fuel and service expenses',
@@ -131,6 +147,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Monthly summary view for spending control',
                 'Simple maintenance note logging',
                 'Data synchronization with backend storage'
+            ],
+            link: '#'
+        },
+        'assistant-code': {
+            title: 'Assistant Code',
+            tag: 'Archived AI Coding Experiment',
+            year: 'Archived',
+            tech: 'Qwen3.5:4b, Qwen2.5-Coder:3b, Qwen2.5-Coder:1.5b',
+            image: 'assets/img/assistant-code.svg',
+            description: 'An experiment to build a coding assistant using several Qwen models. Development was stopped because the results were not satisfactory on the available server hardware.',
+            features: [
+                'Explored Qwen3.5:4b',
+                'Explored Qwen2.5-Coder:3b and Qwen2.5-Coder:1.5b',
+                'Paused after evaluating output quality against available server resources'
             ],
             link: '#'
         },

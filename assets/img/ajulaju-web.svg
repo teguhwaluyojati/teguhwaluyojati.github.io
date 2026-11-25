@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">AjuLaju web dashboard illustration</title>
+  <desc id="desc">Illustrative vehicle expense dashboard with fuel, service history, and expense trend panels.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dceff0"/>
+      <stop offset="1" stop-color="#f4f7ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect x="84" y="60" width="792" height="480" rx="24" fill="#fff"/>
+  <rect x="84" y="60" width="188" height="480" rx="24" fill="#123d3c"/>
+  <path d="M248 60h24v480h-24" fill="#123d3c"/>
+  <circle cx="124" cy="105" r="18" fill="#f5a33b"/>
+  <path d="M112 108h24m-20-7h16m-17 14h18" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="153" y="111" fill="#fff" font-family="Arial, sans-serif" font-size="21" font-weight="700">AjuLaju</text>
+  <g font-family="Arial, sans-serif" font-size="14">
+    <rect x="105" y="153" width="146" height="42" rx="10" fill="#245653"/>
+    <text x="124" y="179" fill="#fff">Overview</text>
+    <text x="124" y="228" fill="#c7dcda">Fuel expenses</text>
+    <text x="124" y="274" fill="#c7dcda">Service history</text>
+    <text x="124" y="320" fill="#c7dcda">My vehicles</text>
+  </g>
+  <text x="310" y="112" fill="#193b3a" font-family="Arial, sans-serif" font-size="25" font-weight="700">Vehicle overview</text>
+  <text x="310" y="139" fill="#718987" font-family="Arial, sans-serif" font-size="14">Track fuel costs and maintenance in one place</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="310" y="166" width="164" height="92" rx="13" fill="#fff7e9" stroke="#f0e4cd"/>
+    <circle cx="339" cy="197" r="15" fill="#f5a33b"/>
+    <path d="M339 188v11l8 5" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="328" y="235" fill="#193b3a" font-size="14" font-weight="700">Fuel expenses</text>
+    <rect x="490" y="166" width="164" height="92" rx="13" fill="#eaf5ef" stroke="#d8e9de"/>
+    <circle cx="519" cy="197" r="15" fill="#3b9c70"/>
+    <path d="M513 197h12m-6-6v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="508" y="235" fill="#193b3a" font-size="14" font-weight="700">Service records</text>
+    <rect x="670" y="166" width="164" height="92" rx="13" fill="#edf4f5" stroke="#dce8e8"/>
+    <circle cx="699" cy="197" r="15" fill="#3e8d94"/>
+    <path d="M690 198h18m-14-5 4-4 4 4m-8 10 4 4 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="688" y="235" fill="#193b3a" font-size="14" font-weight="700">Fuel trends</text>
+    <rect x="310" y="281" width="315" height="218" rx="14" fill="#fff" stroke="#e3ece9"/>
+    <text x="333" y="312" fill="#193b3a" font-size="16" font-weight="700">Expense trend</text>
+    <text x="333" y="334" fill="#718987" font-size="12">Fuel and service history</text>
+    <path d="M338 457h267M338 419h267M338 381h267" stroke="#edf1ed" stroke-width="1"/>
+    <path d="m350 436 45-25 43 11 45-38 43 14 43-30 44 10" fill="none" stroke="#3b9c70" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="569" cy="368" r="5" fill="#f5a33b"/>
+    <rect x="644" y="281" width="190" height="218" rx="14" fill="#f7faf8" stroke="#e3ece9"/>
+    <text x="666" y="312" fill="#193b3a" font-size="16" font-weight="700">Recent activity</text>
+    <circle cx="675" cy="352" r="7" fill="#f5a33b"/>
+    <text x="694" y="357" fill="#365b58" font-size="13">Fuel entry</text>
+    <path d="M675 367v23" stroke="#cfded8" stroke-width="2"/>
+    <circle cx="675" cy="405" r="7" fill="#3b9c70"/>
+    <text x="694" y="410" fill="#365b58" font-size="13">Service note</text>
+    <path d="M675 420v23" stroke="#cfded8" stroke-width="2"/>
+    <circle cx="675" cy="458" r="7" fill="#3e8d94"/>
+    <text x="694" y="463" fill="#365b58" font-size="13">Vehicle record</text>
+  </g>
+</svg>
