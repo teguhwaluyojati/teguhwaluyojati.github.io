@@ -4,15 +4,14 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script>
-            const destination = new URL(window.location.href);
-            destination.protocol = "https:";
-            destination.hostname = "teguhwaluyojati.my.id";
-            destination.port = "";
-            window.location.replace(destination.href);
+            if (window.location.origin !== "https://teguhwaluyojati.my.id") {
+                const destination = new URL(window.location.href);
+                destination.protocol = "https:";
+                destination.hostname = "teguhwaluyojati.my.id";
+                destination.port = "";
+                window.location.replace(destination.href);
+            }
         </script>
-        <noscript>
-            <meta http-equiv="refresh" content="0;url=https://teguhwaluyojati.my.id/" />
-        </noscript>
                 <meta name="description" content="Teguh Waluyojati - Software Engineer building web applications and self-hosted Linux services on Ubuntu Server." />
                 <meta name="author" content="Teguh Waluyojati" />
                 <meta name="robots" content="index, follow" />
@@ -70,6 +69,9 @@
                 </script>
     </head>
     <body id="page-top">
+        <noscript>
+            <p>This site has moved to <a href="https://teguhwaluyojati.my.id/">teguhwaluyojati.my.id</a>.</p>
+        </noscript>
         <!-- Loading Overlay -->
         <div class="loading-overlay" id="loadingOverlay">
             <div class="spinner-container">
